@@ -1,0 +1,52 @@
+{
+  "name": "sample-react-ts",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "npm-run-all --parallel --aggregate-output lint:**",
+    "lint:ts": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:spelling": "npx cspell lint .",
+    "lint:commits": "npx commitlint --from=\"$(git rev-parse --short origin)\" --to=\"$(git rev-parse --short HEAD)\"",
+    "preview": "vite preview",
+    "test": "vitest",
+    "new:component": "npx generate-react-cli component"
+  },
+  "dependencies": {
+    "@linaria/react": "^5.0.3",
+    "@linaria/vite": "^5.0.4",
+    "normalize.css": "^8.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
+    "@commitlint/cli": "^18.4.3",
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.1.2",
+    "@types/pretty": "^2.0.3",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "cspell": "^8.0.0",
+    "eslint": "^8.53.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.4",
+    "generate-react-cli": "^8.4.0",
+    "html-validate": "^8.7.2",
+    "jsdom": "^22.1.0",
+    "lefthook": "^1.5.2",
+    "npm-run-all": "^4.1.5",
+    "pretty": "^2.0.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0",
+    "vite-plugin-svgr": "^4.2.0",
+    "vitest": "^2.1.3"
+  }
+}

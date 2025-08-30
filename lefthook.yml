@@ -1,0 +1,18 @@
+# EXAMPLE USAGE:
+#
+#   Refer for explanation to following link:
+#   https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
+#
+pre-push:
+  commands:
+    commits:
+      run: npm run lint:commits
+
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: '*.{js,ts,jsx,tsx}'
+      run: npm run lint:ts
+    spellcheck:
+      run: npm run lint:spelling

@@ -1,0 +1,18 @@
+{
+  "language": "en",
+  "ignorePaths": ["node_modules/**", "*.svg", "*.config.*"],
+  "dictionaries": [
+    "companies",
+    "softwareTerms",
+    "html",
+    "typescript",
+    "css",
+    "custom"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "custom",
+      "path": "./wordlist.txt"
+    }
+  ]
+}

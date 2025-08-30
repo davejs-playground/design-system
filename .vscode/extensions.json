@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "streetsidesoftware.code-spell-checker",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "vitest.explorer",
+    "styled-components.vscode-styled-components",
+    "eamodio.gitlens",
+    "wix.vscode-import-cost",
+    "davidanson.vscode-markdownlint",
+    "html-validate.vscode-html-validate"
+  ]
+}
