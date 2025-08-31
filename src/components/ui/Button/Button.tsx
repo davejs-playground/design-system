@@ -1,8 +1,8 @@
-import { Slot } from '@radix-ui/react-slot'
-import { cva } from 'class-variance-authority'
-import { Loader2 } from 'lucide-react'
-import type * as React from 'react'
-import { cn } from '@/lib/utils'
+import { Slot } from '@radix-ui/react-slot';
+import { cva } from 'class-variance-authority';
+import { Loader2 } from 'lucide-react';
+import type * as React from 'react';
+import { cn } from '@/lib/utils';
 
 type Intent =
   | 'default'
@@ -10,8 +10,8 @@ type Intent =
   | 'secondary'
   | 'warning'
   | 'destructive'
-  | 'link'
-type Size = 'sm' | 'md' | 'lg'
+  | 'link';
+type Size = 'sm' | 'md' | 'lg';
 
 export type ButtonProps = React.ComponentProps<'button'> & {
   /**
@@ -36,21 +36,21 @@ export type ButtonProps = React.ComponentProps<'button'> & {
    * Used for inline actions alongside text content.
    * @default default
    */
-  intent?: Intent
+  intent?: Intent;
   /** Sets the button's size */
-  size?: Size
+  size?: Size;
   /** Icon to be displayed inside the button */
-  icon?: React.ReactNode
+  icon?: React.ReactNode;
   /** Shows a loading spinner inside the button and disables it */
-  isLoading?: boolean
+  isLoading?: boolean;
 
   /** If true, the button will span the full width of its container */
-  isFullWidth?: boolean
+  isFullWidth?: boolean;
   /** If true, the button will be rendered as a child component */
-  asChild?: boolean
+  asChild?: boolean;
   /** If true, the button will be rendered as an icon */
-  isIconOnly?: boolean
-}
+  isIconOnly?: boolean;
+};
 
 const buttonVariants = cva(
   [
@@ -93,7 +93,7 @@ const buttonVariants = cva(
       size: 'md',
     },
   },
-)
+);
 
 const Button = ({
   className,
@@ -108,7 +108,7 @@ const Button = ({
   type = 'button',
   ...props
 }: ButtonProps) => {
-  const Comp = asChild ? Slot : 'button'
+  const Comp = asChild ? Slot : 'button';
 
   return (
     <Comp
@@ -125,7 +125,7 @@ const Button = ({
       {isLoading && <Loader2 className="size-4 animate-spin" />}
       {children && <span className="truncate">{children}</span>}
     </Comp>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

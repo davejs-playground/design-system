@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import TemplateName from './TemplateName'
+import TemplateName from './TemplateName';
 
 const meta = {
   title: 'Components/TemplateName',
   component: TemplateName,
-} satisfies Meta<typeof TemplateName>
+} satisfies Meta<typeof TemplateName>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
@@ -32,4 +32,4 @@ export const Primary: Story = {
       },
     },
   },
-}
+};

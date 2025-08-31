@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { PlusIcon } from 'lucide-react'
-import Button from './Button'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { PlusIcon } from 'lucide-react';
+import Button from './Button';
 
 const meta = {
   title: 'Components/Button',
   component: Button,
-} satisfies Meta<typeof Button>
+} satisfies Meta<typeof Button>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
@@ -32,7 +32,7 @@ export const Default: Story = {
       },
     },
   },
-}
+};
 
 export const WithEdgeCases: Story = {
   render: (args) => (
@@ -64,7 +64,7 @@ export const WithEdgeCases: Story = {
       },
     },
   },
-}
+};
 
 export const WithIntents: Story = {
   args: {
@@ -103,7 +103,7 @@ export const WithIntents: Story = {
       },
     },
   },
-}
+};
 
 export const WithSizes: Story = {
   args: {
@@ -147,4 +147,4 @@ export const WithSizes: Story = {
       },
     },
   },
-}
+};

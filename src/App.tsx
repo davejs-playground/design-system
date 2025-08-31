@@ -1,4 +1,4 @@
-import Button from './components/ui/Button/Button'
+import Button from './components/ui/Button/Button';
 
 function App() {
   return (
@@ -6,7 +6,7 @@ function App() {
       <h1>Hello World</h1>
       <Button>Click me</Button>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

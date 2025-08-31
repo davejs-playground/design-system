@@ -1,6 +1,6 @@
 export type TemplateNameProps = React.ComponentProps<'div'> & {
-  children?: React.ReactNode
-}
+  children?: React.ReactNode;
+};
 
 const TemplateName = ({
   children = 'TemplateName',
@@ -8,7 +8,7 @@ const TemplateName = ({
 }: TemplateNameProps) => {
   // component logic
 
-  return <div {...props}>Hello, ${children}!</div>
-}
+  return <div {...props}>Hello, ${children}!</div>;
+};
 
-export default TemplateName
+export default TemplateName;
