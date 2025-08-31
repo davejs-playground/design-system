@@ -1,6 +1,14 @@
 {
   "language": "en",
-  "ignorePaths": ["node_modules/**", "*.svg", "*.config.*"],
+  "ignorePaths": [
+    "node_modules/**",
+    "*.svg",
+    "*.config.*",
+    "package.json",
+    "pnpm-lock.yaml",
+    "biome.json",
+    "tsconfig.json"
+  ],
   "dictionaries": [
     "companies",
     "softwareTerms",

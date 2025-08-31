@@ -1,19 +1,17 @@
+/// <reference types="vitest/config" />
 /// <reference types="vitest" />
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
-import linaria from '@linaria/vite';
-import svgr from 'vite-plugin-svgr';
+
+import path from 'node:path'
+import tailwindcss from '@tailwindcss/vite'
+import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from 'vite'
+import svgr from 'vite-plugin-svgr'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    linaria({
-      include: ['**/*.{ts,tsx}'],
-      babelOptions: {
-        presets: ['@babel/preset-typescript', '@babel/preset-react'],
-      },
-    }),
+    tailwindcss(),
     svgr({
       svgrOptions: {
         exportType: 'default',
@@ -23,9 +21,14 @@ export default defineConfig({
           role: 'img',
         },
       },
-      include: "**/*.svg",
+      include: '**/*.svg',
     }),
   ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
   server: {
     port: 3000,
   },
@@ -34,4 +37,4 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['vitest.setup.ts'],
   },
-});
+})

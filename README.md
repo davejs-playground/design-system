@@ -7,11 +7,10 @@
 This is a sample project for React + TypeScript. It has a lot of extra tooling that come out-of-the-box including:
 
 - Testing with Vitest
-- Build-time CSS-in-JS with Linaria
-- Code linting with Prettier/ESLint/
+- Code linting with Biome
 - Commit linting with commitlint
 - Githooks with Lefthook
-- HTML valitation
+- HTML validation
 - Spellcheck with Cspell
 - Pre-configured CI for Github Actions
 - React Component templates for auto-generating new components
@@ -20,20 +19,20 @@ This is a sample project for React + TypeScript. It has a lot of extra tooling t
 
 ### Install
 
-```
-npm install
+```sh
+pnpm install
 ```
 
 ### Run dev environment
 
-```
-npm run dev
+```sh
+pnpm run dev
 ```
 
 ### Generate a new component
 
-```
-npm run new:component
+```sh
+pnpm run new:component
 ```
 
 ## TODOs

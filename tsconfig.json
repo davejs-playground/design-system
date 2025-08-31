@@ -19,8 +19,12 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals", "@vitest/browser/providers/playwright"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["src", "src/custom.d.ts", "test", "templates"],
+  "include": ["src", "src/custom.d.ts", "test", "templates", "vitest.setup.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

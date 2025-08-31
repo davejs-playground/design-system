@@ -1,19 +1,14 @@
-import { styled } from '@linaria/react';
+export type TemplateNameProps = React.ComponentProps<'div'> & {
+  children?: React.ReactNode
+}
 
-const StyledTemplateName = styled.div`
-  /* styles */
-`;
+const TemplateName = ({
+  children = 'TemplateName',
+  ...props
+}: TemplateNameProps) => {
+  // component logic
 
-export type Props = {
-  // props
-};
+  return <div {...props}>Hello, ${children}!</div>
+}
 
-const TemplateName = (props: Props) => {
-  return (
-    <StyledTemplateName {...props}>
-      Here is you new TemplateName component!
-    </StyledTemplateName>
-  );
-};
-
-export default TemplateName;
+export default TemplateName

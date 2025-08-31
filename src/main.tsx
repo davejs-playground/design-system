@@ -1,12 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
-import 'normalize.css';
-import './index.css';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.tsx'
+import './index.css'
 
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+// biome-ignore lint/style/noNonNullAssertion: root is always defined
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
-);
+  </React.StrictMode>,
+)

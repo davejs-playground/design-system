@@ -1,4 +1,2 @@
-import { expect } from 'vitest';
-import customMatchers from './test/matchers';
-
-expect.extend(customMatchers);
+import 'html-validate/vitest'
+import 'vitest-axe/extend-expect'

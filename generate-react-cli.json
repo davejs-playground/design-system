@@ -4,18 +4,20 @@
   "testLibrary": "Testing Library",
   "component": {
     "default": {
-      "path": "src/components",
-      "withStory": false,
+      "path": "src/components/ui",
+      "withStory": true,
       "withTest": true,
       "withIndex": true,
       "customTemplates": {
         "component": "templates/component/TemplateName.tsx",
         "test": "templates/component/TemplateName.test.tsx",
-        "index": "templates/component/index.ts"
+        "index": "templates/component/index.ts",
+        "story": "templates/component/TemplateName.stories.tsx"
       },
       "withStyle": false,
       "withLazy": false
     }
   },
-  "usesStyledComponents": true
+  "usesStyledComponents": false,
+  "usesCssModule": false
 }
