@@ -55,8 +55,6 @@ export default defineConfig([
             'internal', // Internal modules (if you have path aliases)
             'parent', // Parent directory imports
             'sibling', // Same directory imports
-            'index', // Index file imports
-            'object', // Object-imports
           ],
           'newlines-between': 'always',
         },

@@ -5,9 +5,11 @@ import type { ComponentProps } from 'react';
 
 import { cn } from '@/lib/utils';
 
-type Appearance = 'default' | 'primary' | 'secondary' | 'warning' | 'destructive' | 'link';
+export const Appearance = ['default', 'primary', 'secondary', 'warning', 'destructive', 'link'] as const;
+export type Appearance = (typeof Appearance)[number];
 
-type Size = 'small' | 'medium' | 'large';
+export const Size = ['small', 'medium', 'large'] as const;
+export type Size = (typeof Size)[number];
 
 export type ButtonProps = ComponentProps<'button'> & {
   /**
