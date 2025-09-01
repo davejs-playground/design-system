@@ -36,7 +36,7 @@ export const Default: Story = {
 export const WithEdgeCases: Story = {
   name: '...with edge cases',
   render: (args) => (
-    <div className="flex max-w-[300px] content-normal items-start gap-2 flex-wrap">
+    <div className="flex max-w-[300px] flex-wrap content-normal items-start gap-2">
       <Button {...args}>This text is too long to and will overflow the button</Button>
       <Button {...args} disabled>
         Disabled
