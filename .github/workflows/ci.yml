@@ -14,6 +14,7 @@ jobs:
   main:
     name: Lint & Test
     runs-on: ubuntu-latest
+    environment: CI
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js
