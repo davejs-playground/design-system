@@ -56,6 +56,9 @@ export const WithAppearances: Story = {
   render: (args) => (
     <div className="flex gap-2">
       <Button {...args}>Default</Button>
+      <Button {...args} appearance="primary">
+        Primary
+      </Button>
       <Button {...args} appearance="secondary">
         Secondary
       </Button>
