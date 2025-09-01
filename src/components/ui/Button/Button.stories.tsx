@@ -1,10 +1,27 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { PlusIcon } from 'lucide-react';
-import Button from './Button';
+import Button from '.';
 
 const meta = {
-  title: 'Components/Button',
+  title: 'Design System/Components/Button',
   component: Button,
+  argTypes: {
+    type: {
+      name: 'type',
+      control: {
+        type: 'radio' as const,
+      },
+      options: ['button', 'submit', 'reset'] as const,
+    },
+    disabled: {
+      control: {
+        type: 'boolean',
+      },
+    },
+  },
+  args: {
+    children: 'Click me!',
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -12,31 +29,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    onClick: () => console.log('clicked'),
-  },
-  render: (args) => <Button {...args}>Click me</Button>,
-  parameters: {
-    docs: {
-      description: {
-        component: 'Button',
-      },
-      story: 'Default',
-      name: 'Button',
-      parameters: {
-        docs: {
-          description: {
-            component: 'Button',
-          },
-        },
-      },
-    },
-  },
+  render: (args) => <Button {...args} />,
 };
 
 export const WithEdgeCases: Story = {
+  name: '...with edge cases',
   render: (args) => (
-    <div className="flex max-w-[500px] content-normal items-start gap-2">
+    <div className="flex max-w-[300px] content-normal items-start gap-2 flex-wrap">
       <Button {...args}>
         This text is too long to and will overflow the button
       </Button>
@@ -48,64 +47,34 @@ export const WithEdgeCases: Story = {
       </Button>
     </div>
   ),
-  parameters: {
-    docs: {
-      description: {
-        component: 'Button',
-      },
-      story: 'Default',
-      name: 'Button',
-      parameters: {
-        docs: {
-          description: {
-            component: 'Button',
-          },
-        },
-      },
-    },
-  },
 };
 
-export const WithIntents: Story = {
+export const WithAppearances: Story = {
+  name: '...with appearances',
   args: {
     onClick: () => console.log('clicked'),
   },
   render: (args) => (
     <div className="flex gap-2">
       <Button {...args}>Default</Button>
-      <Button {...args} intent="secondary">
+      <Button {...args} appearance="secondary">
         Secondary
       </Button>
-      <Button {...args} intent="warning">
+      <Button {...args} appearance="warning">
         Warning
       </Button>
-      <Button {...args} intent="destructive">
+      <Button {...args} appearance="destructive">
         Destructive
       </Button>
-      <Button {...args} intent="link">
+      <Button {...args} appearance="link">
         Link
       </Button>
     </div>
   ),
-  parameters: {
-    docs: {
-      description: {
-        component: 'Button',
-      },
-      story: 'WithIntents',
-      name: 'Button',
-      parameters: {
-        docs: {
-          description: {
-            component: 'Button',
-          },
-        },
-      },
-    },
-  },
 };
 
 export const WithSizes: Story = {
+  name: '...with sizes',
   args: {
     onClick: () => console.log('clicked'),
   },
@@ -131,20 +100,4 @@ export const WithSizes: Story = {
       </Button>
     </div>
   ),
-  parameters: {
-    docs: {
-      description: {
-        component: 'Button',
-      },
-      story: 'WithSizes',
-      name: 'Button',
-      parameters: {
-        docs: {
-          description: {
-            component: 'Button',
-          },
-        },
-      },
-    },
-  },
 };

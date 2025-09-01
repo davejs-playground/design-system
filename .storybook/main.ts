@@ -7,6 +7,11 @@ const config: StorybookConfig = {
     '@storybook/addon-docs',
     '@storybook/addon-a11y',
     '@storybook/addon-vitest',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+    '@storybook/addon-links',
+    '@storybook/themes',
+    '@storybook/addon-themes',
   ],
   framework: {
     name: '@storybook/react-vite',

@@ -4,7 +4,7 @@ import { Loader2 } from 'lucide-react';
 import type * as React from 'react';
 import { cn } from '@/lib/utils';
 
-type Intent =
+type Appearance =
   | 'default'
   | 'primary'
   | 'secondary'
@@ -36,7 +36,7 @@ export type ButtonProps = React.ComponentProps<'button'> & {
    * Used for inline actions alongside text content.
    * @default default
    */
-  intent?: Intent;
+  appearance?: Appearance;
   /** Sets the button's size */
   size?: Size;
   /** Icon to be displayed inside the button */
@@ -58,6 +58,7 @@ const buttonVariants = cva(
 
     // icons
     '[&_svg]:pointer-events-none [&_svg:not([class*="size-"])]:size-[1em] [&_svg]:shrink-0',
+
     // disabled
     'disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed',
 
@@ -69,7 +70,7 @@ const buttonVariants = cva(
   ],
   {
     variants: {
-      intent: {
+      appearance: {
         default:
           'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',
         primary:
@@ -80,7 +81,7 @@ const buttonVariants = cva(
         destructive:
           'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/50 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
         link: 'text-primary underline-offset-4 hover:underline',
-      } satisfies Record<Intent, string>,
+      } satisfies Record<Appearance, string>,
       size: {
         sm: 'text-xs',
         md: 'text-sm',
@@ -89,7 +90,7 @@ const buttonVariants = cva(
     },
 
     defaultVariants: {
-      intent: 'default',
+      appearance: 'default',
       size: 'md',
     },
   },
@@ -97,8 +98,8 @@ const buttonVariants = cva(
 
 const Button = ({
   className,
-  intent,
-  size,
+  appearance = 'default',
+  size = 'md',
   isLoading = false,
   asChild = false,
   children,
@@ -114,7 +115,7 @@ const Button = ({
     <Comp
       data-slot="button"
       className={cn(
-        buttonVariants({ intent, size, className }),
+        buttonVariants({ appearance, size, className }),
         isIconOnly && '!size-[2.55em] p-0',
         isFullWidth && 'w-full',
       )}
