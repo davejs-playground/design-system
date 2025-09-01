@@ -28,11 +28,11 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Run Linters
         run: pnpm run lint
+      - name: Setup Playwright
+        run: pnpm run playwright install chromium
       - name: Run Unit Tests
         run: pnpm test
       - name: Run Storybook Tests
         run: pnpm run build-storybook
-      - name: Setup Playwright
-        run: pnpm run playwright install chromium
       - name: Run Chromatic
         run: pnpm run chromatic
