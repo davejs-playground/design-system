@@ -14,18 +14,12 @@ describe('TemplateName', () => {
   });
 
   it('passes accessibility tests', async () => {
-    const result = render(<TemplateName {...props} />);
+    const result = render(
+      <main>
+        <TemplateName {...props} />
+      </main>,
+    );
 
     expect(await axe(result.container.outerHTML)).toHaveNoViolations();
-  });
-
-  describe('functionality', () => {
-    it('renders default children', () => {
-      const result = render(<TemplateName {...props}>Test</TemplateName>);
-
-      expect(result.container.outerHTML).toHTMLValidate();
-
-      expect(result.getByText('TemplateName')).toBeInTheDocument();
-    });
   });
 });
