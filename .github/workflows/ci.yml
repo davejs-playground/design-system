@@ -35,4 +35,4 @@ jobs:
       - name: Run Storybook Tests
         run: pnpm run build-storybook
       - name: Run Chromatic
-        run: pnpm run chromatic
+        run: pnpm exec chromatic
