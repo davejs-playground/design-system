@@ -1,7 +1,7 @@
 import { Slot } from '@radix-ui/react-slot';
 import { cva } from 'class-variance-authority';
 import { Loader2 } from 'lucide-react';
-import type * as React from 'react';
+import type { ComponentProps } from 'react';
 import { cn } from '@/lib/utils';
 
 type Appearance =
@@ -11,11 +11,13 @@ type Appearance =
   | 'warning'
   | 'destructive'
   | 'link';
-type Size = 'sm' | 'md' | 'lg';
 
-export type ButtonProps = React.ComponentProps<'button'> & {
+type Size = 'small' | 'medium' | 'large';
+
+export type ButtonProps = ComponentProps<'button'> & {
   /**
    * Defines the intent of the button action.
+   * @default default
    *
    * # **`default`**
    * Unopinionated button style.
@@ -34,10 +36,12 @@ export type ButtonProps = React.ComponentProps<'button'> & {
    *
    * # **`link`**
    * Used for inline actions alongside text content.
-   * @default default
    */
   appearance?: Appearance;
-  /** Sets the button's size */
+  /**
+   * Sets the button's size
+   * @default medium
+   * */
   size?: Size;
   /** Icon to be displayed inside the button */
   icon?: React.ReactNode;
@@ -54,44 +58,88 @@ export type ButtonProps = React.ComponentProps<'button'> & {
 
 const buttonVariants = cva(
   [
-    'inline-flex overflow-hidden items-center justify-center leading-[1.25] gap-[0.25em] px-[0.75em] py-[0.5em] rounded-md transition-colors duration-200 ease-in-out border !border-transparent outline-none cursor-pointer text-sm',
+    'inline-flex',
+    'overflow-hidden',
+    'items-center',
+    'justify-center',
+    'leading-[1.25]',
+    'gap-[0.25em]',
+    'px-[0.75em]',
+    'py-[0.5em]',
+    'rounded-md',
+    'transition-colors',
+    'duration-200',
+    'ease-in-out',
+    'border',
+    '!border-transparent',
+    'outline-none',
+    'cursor-pointer',
+    'text-sm',
 
     // icons
-    '[&_svg]:pointer-events-none [&_svg:not([class*="size-"])]:size-[1em] [&_svg]:shrink-0',
+    '[&_svg]:pointer-events-none',
+    '[&_svg:not([class*="size-"])]:size-[1em]',
+    '[&_svg]:shrink-0',
 
     // disabled
-    'disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed',
+    'disabled:pointer-events-none',
+    'disabled:opacity-50',
+    'disabled:cursor-not-allowed',
 
     // focus-visible
-    'focus-visible:border-ring focus-visible:ring-ring focus-visible:ring-2 focus-visible:ring-offset-1',
+    'focus-visible:border-ring',
+    'focus-visible:ring-ring',
+    'focus-visible:ring-2',
+    'focus-visible:ring-offset-1',
 
     // aria-invalid
-    'aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive',
+    'aria-invalid:ring-destructive/20',
+    'dark:aria-invalid:ring-destructive/40',
+    'aria-invalid:border-destructive',
   ],
   {
     variants: {
       appearance: {
-        default:
-          'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',
-        primary:
-          'bg-blue-500 text-primary-foreground shadow-xs hover:bg-blue-500/90',
-        secondary:
-          'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',
-        warning: 'bg-warning text-white shadow-xs hover:bg-warning/90',
-        destructive:
-          'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/50 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
-        link: 'text-primary underline-offset-4 hover:underline',
-      } satisfies Record<Appearance, string>,
+        default: [
+          'bg-primary',
+          'text-primary-foreground',
+          'shadow-xs',
+          'hover:bg-primary/90',
+        ],
+        primary: [
+          'bg-blue-500',
+          'text-primary-foreground',
+          'shadow-xs',
+          'hover:bg-blue-500/90',
+        ],
+        secondary: [
+          'bg-secondary',
+          'text-secondary-foreground',
+          'shadow-xs',
+          'hover:bg-secondary/80',
+        ],
+        warning: [
+          'bg-warning',
+          'text-white',
+          'shadow-xs',
+          'hover:bg-warning/90',
+        ],
+        destructive: [
+          'bg-destructive',
+          'text-white',
+          'shadow-xs',
+          'hover:bg-destructive/90',
+          'focus-visible:ring-destructive/50',
+          'dark:focus-visible:ring-destructive/40',
+          'dark:bg-destructive/60',
+        ],
+        link: ['text-primary', 'underline-offset-4', 'hover:underline'],
+      } satisfies Record<Appearance, string[] | string>,
       size: {
-        sm: 'text-xs',
-        md: 'text-sm',
-        lg: 'text-md',
-      } satisfies Record<Size, string>,
-    },
-
-    defaultVariants: {
-      appearance: 'default',
-      size: 'md',
+        small: 'text-xs',
+        medium: 'text-sm',
+        large: 'text-md',
+      } satisfies Record<Size, string[] | string>,
     },
   },
 );
@@ -99,7 +147,7 @@ const buttonVariants = cva(
 const Button = ({
   className,
   appearance = 'default',
-  size = 'md',
+  size = 'medium',
   isLoading = false,
   asChild = false,
   children,

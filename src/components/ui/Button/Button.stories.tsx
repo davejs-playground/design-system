@@ -80,22 +80,22 @@ export const WithSizes: Story = {
   },
   render: (args) => (
     <div className="flex items-start gap-2">
-      <Button {...args} size="sm">
+      <Button {...args} size="small">
         Small
       </Button>
-      <Button {...args} size="sm" isIconOnly>
+      <Button {...args} size="small" isIconOnly>
         <PlusIcon />
       </Button>
-      <Button {...args} size="md">
+      <Button {...args} size="medium">
         Medium
       </Button>
-      <Button {...args} size="md" isIconOnly>
+      <Button {...args} size="medium" isIconOnly>
         <PlusIcon />
       </Button>
-      <Button {...args} size="lg">
+      <Button {...args} size="large">
         Large
       </Button>
-      <Button {...args} size="lg" isIconOnly>
+      <Button {...args} size="large" isIconOnly>
         <PlusIcon />
       </Button>
     </div>
