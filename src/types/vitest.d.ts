@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-empty-interface */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
+// THIS IS NEEDED TO ADD CUSTOM MATCHERS TO VITEST
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+
 import type { ConfigData } from 'html-validate';
-// biome-ignore lint/correctness/noUnusedImports: necessary for the custom matcher
-import type { Assertion, AsymmetricMatchersContaining } from 'vitest';
+import 'vitest';
 import type { AxeMatchers } from 'vitest-axe/matchers';
 
 interface CustomMatchers<R = unknown> {
@@ -12,7 +11,6 @@ interface CustomMatchers<R = unknown> {
 }
 
 declare module 'vitest' {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   interface Assertion<T> extends CustomMatchers<T> {}
   interface AsymmetricMatchersContaining extends CustomMatchers {}
 }

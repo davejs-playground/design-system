@@ -1,22 +1,7 @@
 {
   "language": "en",
-  "ignorePaths": [
-    "node_modules/**",
-    "*.svg",
-    "*.config.*",
-    "package.json",
-    "pnpm-lock.yaml",
-    "biome.json",
-    "tsconfig.json"
-  ],
-  "dictionaries": [
-    "companies",
-    "softwareTerms",
-    "html",
-    "typescript",
-    "css",
-    "custom"
-  ],
+  "ignorePaths": ["node_modules/**", "*.svg", "*.config.*", "package.json", "pnpm-lock.yaml", "tsconfig.json"],
+  "dictionaries": ["companies", "softwareTerms", "html", "typescript", "css", "custom"],
   "dictionaryDefinitions": [
     {
       "name": "custom",

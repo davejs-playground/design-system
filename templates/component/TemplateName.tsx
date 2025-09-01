@@ -2,10 +2,7 @@ export type TemplateNameProps = React.ComponentProps<'div'> & {
   children?: React.ReactNode;
 };
 
-const TemplateName = ({
-  children = 'TemplateName',
-  ...props
-}: TemplateNameProps) => {
+const TemplateName = ({ children = 'TemplateName', ...props }: TemplateNameProps) => {
   // component logic
 
   return <div {...props}>Hello, ${children}!</div>;

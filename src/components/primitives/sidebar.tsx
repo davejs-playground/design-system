@@ -4,23 +4,13 @@ import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { PanelLeftIcon } from 'lucide-react';
 import * as React from 'react';
+
 import { Button } from '@/components/primitives/button';
 import { Input } from '@/components/primitives/input';
 import { Separator } from '@/components/primitives/separator';
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-} from '@/components/primitives/sheet';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/primitives/sheet';
 import { Skeleton } from '@/components/primitives/skeleton';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/primitives/tooltip';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/primitives/tooltip';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
 
@@ -33,7 +23,6 @@ const SIDEBAR_KEYBOARD_SHORTCUT = 'b';
 
 // Utility function to set cookies properly
 function setCookie(name: string, value: string, maxAge: number) {
-  // biome-ignore lint/suspicious/noDocumentCookie: no fix; eventually use the Cookie Store API when widely available.
   document.cookie = `${name}=${value}; path=/; max-age=${maxAge}; SameSite=Lax`;
 }
 
@@ -88,11 +77,7 @@ function SidebarProvider({
       }
 
       // This sets the cookie to keep the sidebar state.
-      setCookie(
-        SIDEBAR_COOKIE_NAME,
-        openState.toString(),
-        SIDEBAR_COOKIE_MAX_AGE,
-      );
+      setCookie(SIDEBAR_COOKIE_NAME, openState.toString(), SIDEBAR_COOKIE_MAX_AGE);
     },
     [setOpenProp, open],
   );
@@ -105,10 +90,7 @@ function SidebarProvider({
   // Adds a keyboard shortcut to toggle the sidebar.
   React.useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (
-        event.key === SIDEBAR_KEYBOARD_SHORTCUT &&
-        (event.metaKey || event.ctrlKey)
-      ) {
+      if (event.key === SIDEBAR_KEYBOARD_SHORTCUT && (event.metaKey || event.ctrlKey)) {
         event.preventDefault();
         toggleSidebar();
       }
@@ -147,10 +129,7 @@ function SidebarProvider({
               ...style,
             } as React.CSSProperties
           }
-          className={cn(
-            'group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full',
-            className,
-          )}
+          className={cn('group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full', className)}
           {...props}
         >
           {children}
@@ -178,10 +157,7 @@ function Sidebar({
     return (
       <div
         data-slot="sidebar"
-        className={cn(
-          'bg-sidebar text-sidebar-foreground flex h-full w-(--sidebar-width) flex-col',
-          className,
-        )}
+        className={cn('bg-sidebar text-sidebar-foreground flex h-full w-(--sidebar-width) flex-col', className)}
         {...props}
       >
         {children}
@@ -262,11 +238,7 @@ function Sidebar({
   );
 }
 
-function SidebarTrigger({
-  className,
-  onClick,
-  ...props
-}: React.ComponentProps<typeof Button>) {
+function SidebarTrigger({ className, onClick, ...props }: React.ComponentProps<typeof Button>) {
   const { toggleSidebar } = useSidebar();
 
   return (
@@ -327,10 +299,7 @@ function SidebarInset({ className, ...props }: React.ComponentProps<'main'>) {
   );
 }
 
-function SidebarInput({
-  className,
-  ...props
-}: React.ComponentProps<typeof Input>) {
+function SidebarInput({ className, ...props }: React.ComponentProps<typeof Input>) {
   return (
     <Input
       data-slot="sidebar-input"
@@ -363,10 +332,7 @@ function SidebarFooter({ className, ...props }: React.ComponentProps<'div'>) {
   );
 }
 
-function SidebarSeparator({
-  className,
-  ...props
-}: React.ComponentProps<typeof Separator>) {
+function SidebarSeparator({ className, ...props }: React.ComponentProps<typeof Separator>) {
   return (
     <Separator
       data-slot="sidebar-separator"
@@ -446,10 +412,7 @@ function SidebarGroupAction({
   );
 }
 
-function SidebarGroupContent({
-  className,
-  ...props
-}: React.ComponentProps<'div'>) {
+function SidebarGroupContent({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="sidebar-group-content"
@@ -544,12 +507,7 @@ function SidebarMenuButton({
   return (
     <Tooltip>
       <TooltipTrigger asChild>{button}</TooltipTrigger>
-      <TooltipContent
-        side="right"
-        align="center"
-        hidden={state !== 'collapsed' || isMobile}
-        {...tooltip}
-      />
+      <TooltipContent side="right" align="center" hidden={state !== 'collapsed' || isMobile} {...tooltip} />
     </Tooltip>
   );
 }
@@ -586,10 +544,7 @@ function SidebarMenuAction({
   );
 }
 
-function SidebarMenuBadge({
-  className,
-  ...props
-}: React.ComponentProps<'div'>) {
+function SidebarMenuBadge({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="sidebar-menu-badge"
@@ -627,12 +582,7 @@ function SidebarMenuSkeleton({
       className={cn('flex h-8 items-center gap-2 rounded-md px-2', className)}
       {...props}
     >
-      {showIcon && (
-        <Skeleton
-          className="size-4 rounded-md"
-          data-sidebar="menu-skeleton-icon"
-        />
-      )}
+      {showIcon && <Skeleton className="size-4 rounded-md" data-sidebar="menu-skeleton-icon" />}
       <Skeleton
         className="h-4 max-w-(--skeleton-width) flex-1"
         data-sidebar="menu-skeleton-text"
@@ -661,10 +611,7 @@ function SidebarMenuSub({ className, ...props }: React.ComponentProps<'ul'>) {
   );
 }
 
-function SidebarMenuSubItem({
-  className,
-  ...props
-}: React.ComponentProps<'li'>) {
+function SidebarMenuSubItem({ className, ...props }: React.ComponentProps<'li'>) {
   return (
     <li
       data-slot="sidebar-menu-sub-item"

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { PlusIcon } from 'lucide-react';
+
 import Button from '.';
 
 const meta = {
@@ -36,9 +37,7 @@ export const WithEdgeCases: Story = {
   name: '...with edge cases',
   render: (args) => (
     <div className="flex max-w-[300px] content-normal items-start gap-2 flex-wrap">
-      <Button {...args}>
-        This text is too long to and will overflow the button
-      </Button>
+      <Button {...args}>This text is too long to and will overflow the button</Button>
       <Button {...args} disabled>
         Disabled
       </Button>

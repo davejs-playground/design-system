@@ -1,9 +1,10 @@
 import { render } from '@testing-library/react';
 import { axe } from 'vitest-axe';
+
 import { TemplateName, type TemplateNameProps } from '.';
 
 const props: TemplateNameProps = {
-  // test props
+  children: 'TemplateName',
 };
 
 describe('TemplateName', () => {

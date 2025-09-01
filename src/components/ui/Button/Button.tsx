@@ -2,15 +2,10 @@ import { Slot } from '@radix-ui/react-slot';
 import { cva } from 'class-variance-authority';
 import { Loader2 } from 'lucide-react';
 import type { ComponentProps } from 'react';
+
 import { cn } from '@/lib/utils';
 
-type Appearance =
-  | 'default'
-  | 'primary'
-  | 'secondary'
-  | 'warning'
-  | 'destructive'
-  | 'link';
+type Appearance = 'default' | 'primary' | 'secondary' | 'warning' | 'destructive' | 'link';
 
 type Size = 'small' | 'medium' | 'large';
 
@@ -100,30 +95,10 @@ const buttonVariants = cva(
   {
     variants: {
       appearance: {
-        default: [
-          'bg-primary',
-          'text-primary-foreground',
-          'shadow-xs',
-          'hover:bg-primary/90',
-        ],
-        primary: [
-          'bg-blue-500',
-          'text-primary-foreground',
-          'shadow-xs',
-          'hover:bg-blue-500/90',
-        ],
-        secondary: [
-          'bg-secondary',
-          'text-secondary-foreground',
-          'shadow-xs',
-          'hover:bg-secondary/80',
-        ],
-        warning: [
-          'bg-warning',
-          'text-white',
-          'shadow-xs',
-          'hover:bg-warning/90',
-        ],
+        default: ['bg-primary', 'text-primary-foreground', 'shadow-xs', 'hover:bg-primary/90'],
+        primary: ['bg-blue-500', 'text-primary-foreground', 'shadow-xs', 'hover:bg-blue-500/90'],
+        secondary: ['bg-secondary', 'text-secondary-foreground', 'shadow-xs', 'hover:bg-secondary/80'],
+        warning: ['bg-warning', 'text-white', 'shadow-xs', 'hover:bg-warning/90'],
         destructive: [
           'bg-destructive',
           'text-white',

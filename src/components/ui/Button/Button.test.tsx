@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 import { axe } from 'vitest-axe';
+
 import Button, { type ButtonProps } from './Button';
 
 const props: ButtonProps = {
