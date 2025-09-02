@@ -5,7 +5,7 @@ import type { ComponentProps } from 'react';
 
 import { cn } from '@/lib/utils';
 
-export const Appearance = ['default', 'primary', 'secondary', 'warning', 'destructive', 'link'] as const;
+export const Appearance = ['default', 'primary', 'secondary', 'warning', 'danger', 'link'] as const;
 export type Appearance = (typeof Appearance)[number];
 
 export const Size = ['small', 'medium', 'large'] as const;
@@ -28,7 +28,7 @@ export type ButtonProps = ComponentProps<'button'> & {
    * # **`warning`**
    * Used for actions that require attention or caution.
    *
-   * # **`destructive`**
+   * # **`danger`**
    * Used for actions that result in irreversible changes or deletion of data.
    *
    * # **`link`**
@@ -55,7 +55,7 @@ export type ButtonProps = ComponentProps<'button'> & {
 
 const buttonVariants = cva(
   [
-    'inline-flex cursor-pointer items-center justify-center gap-[0.25em] overflow-hidden rounded-md border !border-transparent px-[0.75em] py-[0.5em] text-sm leading-[1.25] transition-colors duration-200 ease-in-out outline-none',
+    'inline-flex cursor-pointer items-center justify-center gap-[0.25em] overflow-hidden rounded-md border !border-transparent px-[0.75em] py-[0.5em] text-sm leading-[1.25] font-medium transition-colors duration-200 ease-in-out outline-none',
 
     // icons
     'focus-visible:ring-ring [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*="size-"])]:size-[1em]',
@@ -67,18 +67,18 @@ const buttonVariants = cva(
     'focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-offset-1',
 
     // aria-invalid
-    'aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40',
+    'aria-invalid:border-danger aria-invalid:ring-danger/20 dark:aria-invalid:ring-danger/40',
   ],
   {
     variants: {
       appearance: {
-        default: 'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',
-        primary: 'bg-blue-500 text-primary-foreground shadow-xs hover:bg-blue-500/90',
+        default: 'bg-default text-default-foreground shadow-xs hover:bg-default/90',
+        primary: 'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',
         secondary: 'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',
-        warning: 'bg-warning text-white shadow-xs hover:bg-warning/90',
-        destructive:
-          'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/50 dark:bg-destructive/60 dark:focus-visible:ring-destructive/40',
-        link: 'text-primary underline-offset-4 hover:underline',
+        warning: 'bg-warning text-warning-foreground shadow-xs hover:bg-warning',
+        danger:
+          'bg-danger text-danger-foreground shadow-xs hover:bg-danger/90 focus-visible:ring-danger/50 dark:bg-danger/60 dark:focus-visible:ring-danger/40',
+        link: 'text-neutral underline-offset-4 hover:underline',
       } satisfies Record<Appearance, string>,
       size: {
         small: 'text-xs',

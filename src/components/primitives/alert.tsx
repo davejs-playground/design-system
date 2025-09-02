@@ -9,8 +9,7 @@ const alertVariants = cva(
     variants: {
       variant: {
         default: 'bg-card text-card-foreground',
-        destructive:
-          'bg-card text-destructive *:data-[slot=alert-description]:text-destructive/90 [&>svg]:text-current',
+        danger: 'bg-card text-danger *:data-[slot=alert-description]:text-danger/90 [&>svg]:text-current',
       },
     },
     defaultVariants: {
@@ -46,4 +45,4 @@ function AlertDescription({ className, ...props }: React.ComponentProps<'div'>) 
   );
 }
 
-export { Alert, AlertTitle, AlertDescription };
+export { Alert, AlertDescription, AlertTitle };

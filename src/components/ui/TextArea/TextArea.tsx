@@ -1,33 +1,30 @@
 import clsx from 'clsx';
-import { useMemo, useState, type ComponentProps } from 'react';
+import { type ComponentProps } from 'react';
 
-import { getLength, isTooLong } from './utils';
+import { Textarea as PrimitiveTextarea } from '@/components/primitives/textarea';
 
-export type TextAreaProps = ComponentProps<'textarea'> & { label: string };
+import { useTextareaState } from './utils';
 
-const TextArea = ({ label, required, maxLength, ...props }: TextAreaProps) => {
-  const [value, setValue] = useState(props.value ?? '');
-  const tooLong = useMemo(() => isTooLong(value, maxLength), [value, maxLength]);
-  const length = useMemo(() => getLength(value), [value]);
+export type TextareaProps = ComponentProps<'textarea'> & { label: string };
+
+const Textarea = ({ label, required, maxLength, ...props }: TextareaProps) => {
+  const { value, setValue, tooLong, length } = useTextareaState({ value: props.value, maxLength });
 
   return (
     <label className="flex flex-col gap-1.5">
       <span
         className={clsx(
           'inline-flex items-center gap-1 text-sm font-medium',
-          required && 'after:bg-accent-500 after:h-1.5 after:w-1.5 after:rounded-full',
+          required && 'after:h-1.5 after:w-1.5 after:rounded-full after:bg-accent',
         )}
       >
         {label}
       </span>
 
-      <textarea
-        className={clsx(
-          'invalid:bg-danger-50 focus:bg-primary-50 focus:ring-primary-600 w-full gap-2 rounded-md bg-white p-4 text-sm placeholder-slate-400 shadow-sm ring-1 ring-slate-500 ring-inset focus:ring-2 focus:outline-none disabled:cursor-not-allowed disabled:bg-slate-50 dark:bg-slate-800 dark:placeholder-slate-300',
-          tooLong && 'ring-danger-500 dark:ring-danger-500 ring-2',
-        )}
+      <PrimitiveTextarea
+        className={clsx(tooLong && 'ring-2 ring-danger dark:ring-danger')}
         {...props}
-        onChange={(e) => {
+        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
           setValue(e.target.value);
           if (typeof props.onChange === 'function') props.onChange(e);
         }}
@@ -47,4 +44,4 @@ const TextArea = ({ label, required, maxLength, ...props }: TextAreaProps) => {
   );
 };
 
-export default TextArea;
+export default Textarea;

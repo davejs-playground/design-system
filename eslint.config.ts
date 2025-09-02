@@ -57,6 +57,13 @@ export default defineConfig([
             'sibling', // Same directory imports
           ],
           'newlines-between': 'always',
+          pathGroups: [
+            {
+              pattern: '@/**',
+              group: 'internal',
+              position: 'before',
+            },
+          ],
         },
       ],
     },

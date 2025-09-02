@@ -65,8 +65,8 @@ export const WithAppearances: Story = {
       <Button {...args} appearance="warning">
         Warning
       </Button>
-      <Button {...args} appearance="destructive">
-        Destructive
+      <Button {...args} appearance="danger">
+        Danger
       </Button>
       <Button {...args} appearance="link">
         Link

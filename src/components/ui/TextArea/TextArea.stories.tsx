@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { expect, userEvent, within } from 'storybook/test';
 
-import TextArea from '.';
+import Textarea from '.';
 
 const meta = {
-  title: 'Components/TextArea',
-  component: TextArea,
+  title: 'Design System/Components/Textarea',
+  component: Textarea,
   args: {
-    label: 'Text Area Label',
+    label: 'Textarea Label',
     placeholder: 'Enter some text here…',
     disabled: false,
     required: false,
@@ -34,10 +34,10 @@ const meta = {
       description: 'Marks the text area as required',
     },
   },
-} as Meta<typeof TextArea>;
+} as Meta<typeof Textarea>;
 
 export default meta;
-type Story = StoryObj<typeof TextArea>;
+type Story = StoryObj<typeof Textarea>;
 
 export const Primary: Story = {
   play: async ({ canvasElement }) => {
